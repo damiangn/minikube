@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mi-aplicacion
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mi-aplicacion
+  template:
+    metadata:
+      labels:
+        app: mi-aplicacion
+    spec:
+      containers:
+      - name: mi-aplicacion-container
+        image: nginx:alphine #mi-aplicacion-fastapi:latest  # Nombre de la imagen que construiste
+        ports:
+        - containerPort: 8001
